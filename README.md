@@ -13,7 +13,7 @@ yarn install
 To start the development server with hot-reload:
 
 ```sh
-yarn dev
+yarn docs:dev
 ```
 
 ### Compile and Minify for Production
@@ -21,5 +21,5 @@ yarn dev
 To build the application for production:
 
 ```sh
-yarn build
+yarn docs:build
 ```

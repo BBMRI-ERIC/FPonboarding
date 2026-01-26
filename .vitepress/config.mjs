@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Federated Platform",
   description: "Documentation related to BBMRI-ERIC Federated Platforms",
+  base: '/FPonboarding/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
