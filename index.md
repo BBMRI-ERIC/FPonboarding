@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Federated Platform"
-  text: "documentation related to BBMRI-ERIC Federated Platforms"
+  text: "Documentation related to BBMRI-ERIC Federated Platforms"
   tagline: My great project tagline
   actions:
     - theme: brand

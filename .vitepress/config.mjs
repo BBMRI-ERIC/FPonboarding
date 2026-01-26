@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Federated Platform",
-  description: "documentation related to BBMRI-ERIC Federated Platforms",
+  description: "Documentation related to BBMRI-ERIC Federated Platforms",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
