@@ -4,18 +4,18 @@ layout: home
 
 hero:
   name: "Federated Platform"
-  text: "Documentation related to the technical onbording into the BBMRI-ERIC Federated Platform tools"
-  tagline: My great project tagline
+  text: "Technical onbording into the BBMRI-ERIC Federated Platform tools"
+  tagline: Documentation
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Overview
+      link: /Overview
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Locator
+      link: /Locator
 
 features:
-  - title: Feature A
+  - title: First Steps
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
