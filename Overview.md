@@ -32,4 +32,4 @@ The platform provides:
 
 **Data governance**: Operated by BBMRI-ERIC; your data never leaves the BBMRI-ERIC infrastructure or reaches technology vendors
 
-<img src="images/image.png" alt="Federated Platform Architecture" width="80%">
+<img src="images/image.png" alt="Federated Platform Architecture" width="20%">
