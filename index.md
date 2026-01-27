@@ -13,9 +13,15 @@ hero:
     - theme: alt
       text: Locator
       link: /Locator
+    - theme: alt
+      text: Negotiater
+      link: /Negotiater
+    - theme: alt
+      text: Contact
+      link: /Contact
 
 features:
-  - title: First Steps
+  - title: Get started
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
