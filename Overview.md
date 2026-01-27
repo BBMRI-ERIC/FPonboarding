@@ -26,7 +26,7 @@ The platform provides:
 - Expedited data access workflows
 - Federated data analysis capabilities
 
-**Integration**: Works seamlessly with [BBMRI-ERIC](https://www.bbmri-eric.eu/) [Directory](Directory.md) and [Negotiator](Negotiater.md) services
+**Integration**: Works seamlessly with [BBMRI-ERIC](https://www.bbmri-eric.eu/) [Directory](Directory) and [Negotiator](Negotiater) services
 
 **Infrastructure**: Vendor-neutral, standards-based architecture that interfaces with your existing local IT systems through open, documented APIs—no replacement of your current systems required
 
