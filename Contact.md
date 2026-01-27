@@ -12,7 +12,7 @@ Use this email as your first point of contact for all questions and requests. A 
 
 BBMRI-ERIC IT team supports your integration with:
 - Authentication and Authorization Infrastructure (AAI)
-- Negotiator integration
+- Federated Platform integration
 - Connection to the BBMRI-ERIC IT ecosystem
 
 ### Costs
