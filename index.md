@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Federated Platform"
-  text: "Documentation related to BBMRI-ERIC Federated Platforms"
+  text: "Documentation related to the technical onbording into the BBMRI-ERIC Federated Platform tools"
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
