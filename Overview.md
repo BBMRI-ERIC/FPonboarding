@@ -26,10 +26,10 @@ The platform provides:
 - Expedited data access workflows
 - Federated data analysis capabilities
 
-**Integration**: Works seamlessly with BBMRI-ERIC Directory and Negotiator services
+**Integration**: Works seamlessly with BBMRI-ERIC [Directory](Directory.md) and [Negotiator](Negotiater.md) services
 
 **Infrastructure**: Vendor-neutral, standards-based architecture that interfaces with your existing local IT systems through open, documented APIs—no replacement of your current systems required
 
 **Data governance**: Operated by BBMRI-ERIC; your data never leaves the BBMRI-ERIC infrastructure or reaches technology vendors
 
-![alt text](images/image.png)
+<img src="images/image.png" alt="Federated Platform Architecture" width="80%">
