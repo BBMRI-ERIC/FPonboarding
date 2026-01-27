@@ -31,3 +31,5 @@ The platform provides:
 **Infrastructure**: Vendor-neutral, standards-based architecture that interfaces with your existing local IT systems through open, documented APIs—no replacement of your current systems required
 
 **Data governance**: Operated by BBMRI-ERIC; your data never leaves the BBMRI-ERIC infrastructure or reaches technology vendors
+
+![alt text](images/image.png)
