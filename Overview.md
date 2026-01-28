@@ -32,4 +32,4 @@ The platform provides:
 
 **Data governance**: Operated by [BBMRI-ERIC](https://www.bbmri-eric.eu/); your data never leaves the [BBMRI-ERIC](https://www.bbmri-eric.eu/) infrastructure or reaches technology vendors
 
-<img src="images/image.png" alt="Federated Platform Architecture" width="20%">
+![Federated-Platform-Architecture](/image.png)
