@@ -1,70 +1,83 @@
 ## The Negotiator Platform
 
-### Overview
+### What is the Negotiator?
 
-The **Negotiator** is an online communication and negotiation tool that facilitates structured interactions between researchers and biobanks for access to biological samples, associated data, and services. It streamlines the access request workflow while ensuring transparency and compliance with ethical and legal requirements.
+The Negotiator is basically a structured messaging system for handling sample and data access requests. Instead of endless email chains between researchers and biobanks, everything happens in one place with proper tracking, templates, and audit trails.
 
-**Funding**: Operated and maintained by BBMRI-ERIC Common Service IT (CS IT) as part of the integrated discovery and access infrastructure.
+Think of it as a project management tool specifically designed for biobank access requests. It keeps everyone on the same page and makes sure nothing falls through the cracks.
 
-### Architecture
+**Who runs it:** BBMRI-ERIC Common Service IT maintains the platform as part of the integrated [discovery and access infrastructure](Overview.md).
 
-Negotiator uses a **communication workflow architecture**:
+### How it's set up
 
-#### Request Management Component
-- Structured request forms capturing research requirements
-- Multi-biobank request handling
-- Request tracking and status management
-- Integrated with BBMRI-ERIC AAI for authentication
+The Negotiator has two main parts:
 
-#### Communication Component
-- Secure messaging between researchers and biobank representatives
-- Document exchange capabilities
-- Negotiation history and audit trail
-- Notification system for request updates
+**Request management** - This handles the structured forms where researchers describe what they need, tracks the status of requests, and manages multi-biobank requests (when a researcher needs samples from several biobanks for the same study). Authentication is handled through [BBMRI-ERIC AAI](https://www.bbmri-eric.eu/services/aai/).
 
-### How It Works
+**Communication system** - Secure messaging between researchers and biobank representatives, document exchange (for ethics approvals, MTAs, DTAs, etc.), full negotiation history, and notifications when there are updates.
 
-1. **Request initiation**: Researchers identify relevant biobanks through the Directory or Locator
-2. **Query submission**: Users create access requests specifying:
-   - Research objectives and scope
-   - Sample or data requirements
-   - Intended use and ethical approvals
-   - Timeline and resource needs
-3. **Request distribution**: The Negotiator forwards requests to relevant biobank representatives
-4. **Negotiation process**: Structured communication between parties covering:
-   - Feasibility assessment
-   - Material Transfer Agreements (MTA)
-   - Data Transfer Agreements (DTA)
-   - Cost negotiations
-   - Ethical and legal requirements (GDPR compliance)
-5. **Agreement finalization**: Parties reach agreement on access conditions
-6. **Access fulfillment**: Biobanks provide samples/data according to agreed terms
+Everything is logged and traceable, which is important for compliance and accountability.
 
-**Example workflow**: Researcher finds relevant brain tumor samples in Locator → Creates access request via Negotiator → Biobank reviews request → Parties negotiate MTA terms → Agreement reached → Samples shipped
+### How it actually works
 
-### Workflow Integration
+Here's what a typical access request looks like:
 
-The Negotiator connects seamlessly with other BBMRI-ERIC tools:
+1. **Researcher finds what they need** via the [Directory](Directory.md) or [Locator](Locator.md) and clicks to create an access request
 
-- **Directory integration**: Direct request creation from biobank profiles
-- **Locator integration**: Access requests initiated from federated search results
-- **Standardized templates**: GDPR-compliant consent templates and DTA/MTA models
-- **Transparency mechanisms**: Feedback on sample and data use for all stakeholders
+2. **Researcher fills out the request form** with:
+   - What they're trying to research and why
+   - Exactly what samples or data they need
+   - How they plan to use the materials
+   - What ethical approvals they have (or are getting)
+   - Timeline and any specific requirements
 
-### Your Responsibilities
+3. **Request gets sent to biobank representatives** - You'll get a notification that there's a new request waiting for review
 
-**For Biobanks**:
-- Biobank representatives act as primary contact points
-- Timely response to access requests
-- Providing feasibility assessments and cost estimates
-- Negotiating terms within institutional and legal frameworks
-- Ensuring compliance with GDPR and ethical standards
-- Coordinating with institutional ethics boards and legal teams
+4. **Back-and-forth negotiation** happens through the platform:
+   - You assess feasibility (do we actually have what they're asking for?)
+   - You discuss the [MTA](https://en.wikipedia.org/wiki/Material_transfer_agreement) (Material Transfer Agreement) terms
+   - If data is involved, you work out the [DTA](https://en.wikipedia.org/wiki/Data_transfer_agreement) (Data Transfer Agreement)
+   - You provide cost estimates
+   - You make sure everything complies with [GDPR](https://gdpr.eu/) and your institutional policies
+   - You coordinate with your ethics board and legal team as needed
 
-**For Researchers**:
-- Clear description of research objectives and requirements
-- Providing necessary ethical approvals and documentation
-- Respecting agreed terms and conditions
-- Providing feedback on sample/data use where appropriate
+5. **Agreement gets finalized** - Once everyone agrees on terms, conditions, costs, and timelines, the agreement is documented in the system
 
-**Communication**: The Negotiator ensures all communication is documented, traceable, and compliant with institutional policies and European regulations.
+6. **You fulfill the request** - Samples or data get provided according to the agreed terms
+
+**Example:** A researcher runs a query in [Locator](Locator.md) and finds that three biobanks have relevant brain tumor samples. They create one request through Negotiator that goes to all three biobanks. Each biobank reviews independently, negotiates terms, and decides whether to participate. The researcher can track all three negotiations in one place.
+
+### How it connects to other tools
+
+The Negotiator is the final step in the [BBMRI-ERIC workflow](Overview.md):
+
+- **[Directory](Directory.md) integration** - Researchers can initiate requests directly from biobank profiles
+- **[Locator](Locator.md) integration** - After running federated queries, researchers can request access to the samples they found
+- **Standardized templates** - The platform provides [GDPR](https://gdpr.eu/)-compliant templates for consent, DTAs, and MTAs so you're not starting from scratch
+- **Transparency** - The system can track what happens with samples after they're provided, which helps demonstrate impact
+
+### What you need to do
+
+**If you're a biobank:**
+
+**Designate representatives** - You need to assign people who will handle access requests. They'll get notifications when new requests come in.
+
+**Respond in a timely way** - Researchers are on timelines. Try to review requests and provide initial feedback within a reasonable timeframe (many biobanks aim for 2-4 weeks for initial response).
+
+**Provide feasibility assessments** - Be honest about whether you can actually provide what's being requested, and give realistic timelines and cost estimates.
+
+**Negotiate within your framework** - You're working within your institutional policies, ethical approvals, and legal requirements. The Negotiator helps document all of this, but you're still responsible for ensuring compliance.
+
+**Coordinate internally** - You'll likely need to involve your ethics board, legal team, and sample management staff. The Negotiator gives you a central place to track all of this.
+
+**If you're a researcher:**
+
+**Be specific and clear** - The more detail you provide about your research objectives and requirements, the easier it is for biobanks to assess feasibility.
+
+**Have your ethics approvals ready** - Or at least be clear about your timeline for getting them. Many biobanks won't commit until they see ethics approval.
+
+**Respect the agreements** - Once you've agreed to terms, stick to them. If something changes in your research plan, communicate that.
+
+**Provide feedback** - If the biobank asks for updates on how you used the samples or what you found, provide it. This helps biobanks demonstrate their impact and justify their existence.
+
+The whole point of the Negotiator is to make this process more efficient and transparent. Everything is documented, everyone knows the status, and there's a clear audit trail for compliance purposes.

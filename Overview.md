@@ -1,141 +1,102 @@
 ## BBMRI-ERIC Federated Platform
 
-### What Is the Federated Platform
+### What is this platform?
 
-The **BBMRI-ERIC Federated Platform** is an integrated ecosystem of discovery and access tools that enables researchers to find, query, and request access to biological samples and associated data across European biobanks **without centralizing or transferring sensitive data**. Your samples and data remain under your control at your location while participating in pan-European research infrastructure.
+The BBMRI-ERIC Federated Platform helps researchers find and access biological samples across European biobanks. The key thing to understand: **your data never leaves your site**. Researchers can search across the network, but all the actual data processing happens locally at your biobank. You stay in control.
 
-**Core principle**: Data sovereignty—your biobank maintains full control over samples, data, and access decisions while enabling collaborative research at European scale.
+Think of it as a distributed search engine for biobank samples. Researchers can ask "who has breast cancer samples with RNA data?" and get answers from multiple biobanks, but the samples and data themselves never move.
 
-### Platform Components
+### The three main tools
 
-The federated platform consists of three integrated tools:
+The platform has three pieces that work together:
 
-#### [Directory](Directory.md) - Discovery & Cataloguing
-The central catalogue where researchers discover biobanks, sample collections, and available services across the BBMRI-ERIC network. It provides:
-- Searchable metadata about biobanks and collections
-- Standardized service descriptions (MIABIS-compliant)
-- Filter and comparison capabilities
-- Gateway to other platform tools
+#### [Directory](Directory.md) - The catalog
 
-#### [Locator](Locator.md) - Federated Search
-Real-time, privacy-preserving search across distributed biobank data. It enables:
-- Queries across multiple biobanks simultaneously
-- Local data processing at each biobank
-- Aggregated result presentation
-- Full data sovereignty (no data transfer)
+This is where researchers start. It's basically a searchable database of what biobanks exist, what collections they have, and what services they offer. Think of it like a library catalog, but for biobanks. All the metadata is standardized using MIABIS, which just means everyone describes their collections the same way so researchers can actually compare them.
 
-#### [Negotiator](Negotiator.md) - Access Management
-Structured communication tool for sample and data access requests. It facilitates:
-- Request workflow management
-- Multi-biobank negotiations
-- MTA/DTA coordination
-- Compliance documentation
+#### [Locator](Locator.md) - The search engine
 
-### How the Platform Works
+Once researchers know which biobanks might have what they need, they can run actual queries: "Show me how many samples you have matching these criteria." Here's where the federated part comes in—the query gets sent to your local Bridgehead (a small server you run), which processes it against your data and sends back only aggregate numbers. No individual-level data ever leaves your site.
 
-The three components create an integrated workflow:
+#### [Negotiator](Negotiator.md) - The request manager
 
-1. **Discovery phase** (Directory)
-   - Researchers explore available biobanks and collections
-   - Search by disease type, sample type, available services
-   - Identify relevant resources
+When researchers find what they want, they need to actually request access. The Negotiator handles this workflow—it's basically a structured messaging system for handling sample requests, negotiating terms, sorting out MTAs and DTAs, and keeping track of everything. Much better than endless email chains.
 
-2. **Query phase** (Locator)
-   - Researchers submit specific queries to find matching samples
-   - Your local Bridgehead processes queries on-site
-   - Only aggregated counts returned (e.g., "150 breast cancer samples with RNA")
-   - No personal or sample-level data leaves your biobank
+### How it actually works
 
-3. **Access phase** (Negotiator)
-   - Researchers initiate access requests
-   - Structured negotiation of terms and conditions
-   - Agreement on MTA/DTA, costs, timelines
-   - Access granted according to your policies
+Here's a typical workflow:
 
-### Key Benefits for Your Biobank
+1. **Researcher explores the Directory** to find biobanks that might have relevant samples (e.g., "cancer biobanks in Nordic countries")
 
-**Maintain Autonomy**
-- Full control over your samples and data
-- You decide which queries to answer
-- You control access based on your policies and ethical approvals
-- Your data never leaves your infrastructure
+2. **Researcher queries via Locator** to see actual numbers: "How many colorectal cancer samples with genomic data do you have?" Your Bridgehead processes this locally and returns something like "237 matching samples"—no patient data, just counts.
 
-**Ensure Compliance**
-- Meet GDPR and data protection regulations
-- Personal data stays local
-- Federated architecture prevents data centralization
-- Audit trails for all requests
+3. **Researcher submits a request through Negotiator** to the biobanks with relevant samples. You get notified, review the request, negotiate terms, and decide whether to grant access based on your own policies and ethics approvals.
 
-**Enable Collaboration**
-- Participate in multi-biobank European research
-- Increase visibility of your collections
-- Support researchers without complex data transfers
-- Contribute to precision medicine initiatives
+### Why join?
 
-**Technical Integration**
-- Vendor-neutral, standards-based architecture
-- Interfaces with your existing IT systems via open APIs
-- No replacement of current systems required
-- HL7 FHIR and MIABIS standardization ensures interoperability
+**You keep control**
+Your samples stay where they are. Your data stays where it is. You decide which queries to answer and which requests to approve. The federated architecture means there's no central database with everyone's data—it's all distributed.
 
-### Infrastructure & Governance
+**GDPR compliance built in**
+Because personal data never leaves your infrastructure, you're in a much better position for GDPR compliance. The federated design prevents data centralization, and you get audit trails for all queries and requests.
 
-**Standards-Based Architecture**
-- HL7 FHIR for data exchange
-- MIABIS Core 3.0 for metadata
-- Ontology integration (OBIB, NCIT, SNOMED CT)
-- FAIR principles (Findable, Accessible, Interoperable, Reusable)
+**Increase your visibility**
+Researchers across Europe can discover your collections. You can participate in multi-site studies without the headache of complex data transfers. Your samples get used for research they might not have been part of otherwise.
 
-**Data Governance**
-- Operated by BBMRI-ERIC Common Service IT
-- Your data never leaves BBMRI-ERIC infrastructure
-- No access by technology vendors
-- Compliant with European Health Data Space (EHDS) requirements
+**Works with what you have**
+The platform uses open standards (HL7 FHIR, MIABIS) and connects via APIs. You don't need to rip out your existing systems—the Bridgehead sits alongside them. It's vendor-neutral, so you're not locked into any particular technology.
 
-**Hierarchical Support Model**
-- Local biobank level: Your Bridgehead installation
-- National node level: Coordination and support
-- BBMRI-ERIC level: Central platform operation and development
+### Technical setup
 
-### Getting Started
+**Standards we use:**
+- HL7 FHIR for data exchange (it's the healthcare interoperability standard)
+- MIABIS Core 3.0 for describing biobank metadata
+- Standard ontologies like SNOMED CT and NCIT for consistency
+- FAIR principles because, well, that's the point
 
-To join the federated platform, your biobank will need to:
+**Who runs what:**
+- You run your own Bridgehead (behind your firewall, one outbound connection)
+- Your National Node helps with setup and provides support
+- BBMRI-ERIC Common Service IT operates the central platform components
 
-1. **Install the Locator Bridgehead** - See [Locator documentation](Locator.md)
-   - Deployed within your infrastructure
-   - Secured behind your firewall
-   - One outbound connection only
+**Data governance:**
+Everything runs within BBMRI-ERIC infrastructure. Your data doesn't go to commercial vendors. The setup is designed to align with European Health Data Space (EHDS) requirements.
 
-2. **Register in the Directory** - See [Directory documentation](Directory.md)
-   - Provide biobank and collection metadata
-   - Describe available services
-   - Coordinate through your National Node
+### Getting started
 
-3. **Set up Negotiator access** - See [Negotiator documentation](Negotiator.md)
-   - Designate biobank representative
-   - Establish request handling procedures
-   - Configure notification preferences
+If you want to join, here's what you need to do:
 
-### Support & Resources
+1. **Install the Bridgehead** ([details in Locator docs](Locator.md))
+   - It runs in your infrastructure, behind your firewall
+   - Only needs one outbound connection to the central platform
+   - Your National Node can help with installation
 
-**Technical Support**: Your National Node provides installation and configuration assistance for the Bridgehead component
+2. **Register in the Directory** ([details in Directory docs](Directory.md))
+   - Provide metadata about your biobank and collections
+   - Describe what services you offer
+   - Work with your National Node to get this set up
 
-**Coordination**: BBMRI-ERIC Common Service IT maintains the central platform components
+3. **Connect to Negotiator** ([details in Negotiator docs](Negotiator.md))
+   - Designate who handles access requests at your biobank
+   - Set up your notification preferences
+   - Define your request handling procedures
 
-**Standards & Documentation**: 
-- MIABIS specifications: https://github.com/BBMRI-ERIC/miabis
-- FHIR implementation: https://hl7.org/fhir
-- Platform access: https://www.bbmri-eric.eu/
+### Getting help
 
-### Next Steps
+**Technical questions?** Your National Node is your first point of contact for Bridgehead installation and configuration.
 
-1. Review the detailed documentation:
-   - [Directory Platform](Directory.md) - Understanding cataloguing and discovery
-   - [Locator Platform](Locator.md) - Technical requirements for federated search
-   - [Negotiator Platform](Negotiator.md) - Access request workflows
+**Platform issues?** BBMRI-ERIC Common Service IT maintains the central components.
 
-2. Contact your National Node to initiate onboarding
+**Standards and specs:**
+- MIABIS: https://github.com/BBMRI-ERIC/miabis
+- FHIR: https://hl7.org/fhir
+- Main site: https://www.bbmri-eric.eu/
 
-3. Prepare your data according to HL7 FHIR and MIABIS standards
+### What to read next
 
-By joining the BBMRI-ERIC Federated Platform, your biobank becomes part of Europe's leading biobanking infrastructure, enabling cutting-edge research while maintaining full control over your valuable resources.
+Check out the detailed docs for each component:
+- [Directory Platform](Directory.md) - how the catalog works
+- [Locator Platform](Locator.md) - technical details on federated search
+- [Negotiator Platform](Negotiator.md) - access request workflows
+
+Then reach out to your National Node to start the onboarding process. You'll also want to start thinking about mapping your data to FHIR and MIABIS formats—that's usually the most time-consuming part.

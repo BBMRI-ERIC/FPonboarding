@@ -1,66 +1,94 @@
 ## The Locator Platform
 
-### Overview
+### What is the Locator?
 
-The **Locator** is an open-source federated search solution developed by DKFZ (Deutsches Krebsforschungszentrum) for BBMRI-ERIC. It enables scientists to search for human biospecimens and associated data across academic biobanks while ensuring data sovereignty and privacy through federated query processing.
+The Locator is a federated search engine for biobank samples. Researchers can query multiple biobanks at once to see who has what they're looking for—but here's the key part: **your data never leaves your site**. All the processing happens locally at your biobank, and only aggregate counts get sent back.
 
-**Funding**: Primarily supported by the German Biobank Network, with partial funding from BBMRI-ERIC Common Service IT (CS IT).
+It's open-source software developed by [DKFZ](https://www.dkfz.de/en/) (German Cancer Research Center) for BBMRI-ERIC. You can access the query interface at [locator.bbmri-eric.eu](https://locator.bbmri-eric.eu/).
 
-### Architecture
+**Who funds it:** Primarily the German Biobank Network, with partial funding from BBMRI-ERIC Common Service IT.
 
-Locator uses a **two-component federated architecture**:
+### How it's architected
 
-#### Local Component (Bridgehead)
-- Operated by your biobank, national node, or regional node
-- Stores data exported from your biobank database in standardized format (HL7 FHIR)
-- Runs within your institution's infrastructure behind your firewall
-- **Data sovereignty**: Sample-level and donor-level data never leave your biobank
-- Processes queries locally and returns only aggregated responses
-- Optional OMOP CDM database support for clinical data
+The Locator has two pieces that work together:
 
-#### Central Component
-- Operated and maintained by BBMRI-ERIC CS IT
-- Publicly accessible query interface at https://locator.bbmri-eric.eu/
-- Distributes queries to participating Bridgeheads
-- Aggregates and presents results from multiple biobanks
-- Requires authentication (BBMRI-ERIC AAI) to view per-biobank results
-- Users accept BBMRI-ERIC Acceptable Use Policy during authentication
+**Your local Bridgehead** (the part you run)
+- This is a server that sits in your infrastructure, behind your firewall
+- It stores a copy of your biobank data in standardized [HL7 FHIR](https://hl7.org/fhir/) format
+- It processes queries locally and sends back only aggregated results
+- **Data sovereignty is built in** - sample-level and patient-level data never leave your biobank
+- Optionally supports [OMOP CDM](https://www.ohdsi.org/data-standardization/) if you have clinical data in that format
+- You (or your National Node, or your regional node) operate this
 
-### How It Works
+**The central component** (run by BBMRI-ERIC)
+- This is the web interface where researchers submit queries
+- It distributes queries to all participating Bridgeheads
+- It collects and displays the aggregated results
+- Requires [BBMRI-ERIC AAI](https://www.bbmri-eric.eu/services/aai/) login to see per-biobank results
+- Users have to accept the BBMRI-ERIC Acceptable Use Policy
 
-1. **Data preparation**: You standardize and export data to your local Bridgehead in HL7 FHIR format
-2. **Query submission**: Researchers submit queries through the central component web interface
-3. **Query distribution**: Your local Bridgehead checks for new queries every 5 seconds
-4. **Local processing**: When a relevant query is found, your Bridgehead processes it against your FHIR or OMOP database
-5. **Aggregated response**: Your Bridgehead sends only aggregated data (counts, distributions) to the central component
-6. **Result presentation**: Researchers view combined results from all participating biobanks
-7. **Access request**: Researchers can submit access requests via the integrated Negotiator workflow
+### How it actually works
 
-**Example query**: "How many patients with samples available for research have been diagnosed with breast cancer (ICD-10: C50.1) and have RNA available?"  
-**Example response**: Aggregated counts from each participating biobank—no individual patient or sample data transmitted.
+Here's the step-by-step:
 
-### Integration with BBMRI Tools
+1. **You prepare your data** - Export your biobank data to [HL7 FHIR](https://hl7.org/fhir/) format and load it into your local Bridgehead. This is usually a one-time setup, then regular updates.
 
-The Locator integrates seamlessly with the BBMRI-ERIC ecosystem:
+2. **Researcher submits a query** - They use the web interface at [locator.bbmri-eric.eu](https://locator.bbmri-eric.eu/) to search for samples. For example: "How many breast cancer patients (ICD-10: C50.1) have RNA samples available?"
 
-- **Directory updates**: Optional automatic updates to collection information using aggregate descriptors
-- **Negotiator integration**: Direct access request initiation from search results
-- **FHIR standardization**: Ensures interoperability with clinical systems and research infrastructures
-- **FAIR principles**: Supports Findable, Accessible, Interoperable, and Reusable data practices
+3. **Your Bridgehead picks up the query** - It polls the central server every 5 seconds looking for new queries. When it finds one, it downloads it.
 
-### Your Responsibilities
+4. **Local processing happens** - Your Bridgehead runs the query against your local FHIR (or OMOP) database. All of this happens on your server, behind your firewall.
 
-**Installation & Maintenance**:
-- Your biobank/hospital IT team or National Node installs the local Bridgehead component
-- Deployed on a virtual machine or physical server within your infrastructure
-- Secured behind your firewall (only one outbound port required for query retrieval)
-- Regular data updates to maintain current sample availability
-- All infrastructure and operational costs covered by your institution
+5. **Aggregated response goes back** - Your Bridgehead sends only counts and distributions to the central component. Something like "237 matching samples" - no patient names, no sample IDs, no individual-level data.
 
-**Data Management**:
-- Standardize data according to HL7 FHIR specifications
-- Maintain data quality and accuracy in local systems
-- Ensure compliance with local ethical and legal requirements
-- Optional: Configure automated Directory updates for collection metadata
+6. **Researcher sees combined results** - They get a summary showing how many matching samples each participating biobank has.
 
-**Security**: One-way connection architecture ensures queries are pulled from the central component; no inbound connections to your network required, maintaining maximum security for your data infrastructure.
+7. **Researcher can request access** - If they want to actually use the samples, they can jump to the [Negotiator](Negotiator.md) to start the access request process.
+
+**Example query:** "Show me patients with colorectal cancer who have both tumor tissue and blood samples, with genomic data available"
+
+**Example response:** 
+- Biobank A: 156 patients
+- Biobank B: 89 patients  
+- Biobank C: 203 patients
+
+No individual patient or sample data is transmitted—just the counts.
+
+### How it connects to other tools
+
+The Locator is the middle step in the [BBMRI-ERIC workflow](Overview.md):
+
+- **[Directory](Directory.md) updates** - Your Bridgehead can optionally push aggregate statistics to update your Directory collection information automatically
+- **[Negotiator](Negotiator.md) integration** - Researchers can initiate access requests directly from Locator search results
+- **[FHIR](https://hl7.org/fhir/) standardization** - Using the healthcare interoperability standard ensures your data can work with clinical systems and other research infrastructures
+- **[FAIR principles](https://www.go-fair.org/fair-principles/)** - The whole setup supports making data Findable, Accessible, Interoperable, and Reusable
+
+### What you need to do
+
+**Installation and setup:**
+
+Your IT team (or your National Node) needs to install the Bridgehead. Here's what that involves:
+
+- Deploy it on a VM or physical server in your infrastructure
+- Put it behind your firewall - it only needs **one outbound connection** to pull queries from the central server. No inbound connections required, which keeps your network secure.
+- Load your biobank data in [FHIR format](https://hl7.org/fhir/)
+- Set up regular data updates so the Bridgehead reflects current sample availability
+
+Your institution covers the infrastructure and operational costs. The software itself is open-source and free.
+
+**Data preparation:**
+
+This is usually the most time-consuming part:
+
+- Map your biobank data to [HL7 FHIR](https://hl7.org/fhir/) specifications. FHIR has resources for Patient, Specimen, Condition, Observation, etc.
+- Make sure your data quality is good - garbage in, garbage out
+- Ensure you're compliant with local ethical and legal requirements before making data queryable
+- Optionally, configure automated updates to the [Directory](Directory.md) so your collection metadata stays current
+
+**Ongoing maintenance:**
+
+- Keep your Bridgehead data updated as new samples come in or sample availability changes
+- Monitor the system to make sure it's running and processing queries
+- Work with your National Node if you run into technical issues
+
+**Security note:** The architecture is designed to be secure by default. Queries are **pulled** from the central server by your Bridgehead, not pushed to you. This means no inbound connections to your network, which makes it much easier to get past your IT security team. Your data stays behind your firewall, and you maintain full control over what gets queried and what gets returned.
