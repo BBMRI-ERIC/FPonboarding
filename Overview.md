@@ -1,4 +1,4 @@
-## BBMRI-ERIC Federated Platform: Overview for New Biobanks
+## BBMRI-ERIC Federated Platform
 
 ### What Is the Federated Platform
 

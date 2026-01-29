@@ -11,14 +11,14 @@ hero:
       text: Overview
       link: /Overview
     - theme: alt
-      text: Locator
-      link: /Locator
+      text: Directory
+      link: /Directory
     - theme: alt
       text: Negotiater
       link: /Negotiater
     - theme: alt
-      text: Contact
-      link: /Contact
+      text: Locator
+      link: /Locator
 
 features:
   - title: Get started

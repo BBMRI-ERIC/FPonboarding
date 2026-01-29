@@ -14,10 +14,11 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Tools',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Directory', link: '/Directory' },
+          { text: 'Negotiator', link: '/Negotiator' },
+          { text: 'Locator', link: '/Locator'}
         ]
       }
     ],
