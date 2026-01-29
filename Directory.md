@@ -1,50 +1,58 @@
-## The Locator Platform
+## The Directory Platform
 
 ### Overview
 
-The **Locator** is an open-source federated search solution developed by DKFZ (Deutsches Krebsforschungszentrum) for BBMRI-ERIC. It enables scientists to search for human biospecimens and associated data across academic biobanks while ensuring data sovereignty and privacy.
+The **Directory** is the main BBMRI-ERIC online catalogue and discovery platform that serves as the primary entry point for information about biobanks. It enables researchers, clinicians, and industry partners to discover, explore, and compare biobanks, sample collections, and services across the BBMRI-ERIC network.
 
-**Funding**: Primarily supported by the German Biobank Network, with partial funding from BBMRI-ERIC Common Service IT (CS IT).
+**Funding**: Operated and maintained by BBMRI-ERIC Common Service IT (CS IT), with support from European research infrastructure initiatives.
 
 ### Architecture
 
-Locator uses a **two-component architecture**:
+Directory uses a **centralized data model** based on MIABIS (Minimum Information About BIobank data Sharing):
 
-#### Local Component (Bridgehead)
-- Operated by your biobank, national node, or regional node
-- Stores data exported from your biobank database in standardized format (HL7 FHIR)
-- Runs within your institution's infrastructure
-- **Data sovereignty**: Sample-level and donor-level data never leave your biobank
-- Only aggregated responses are sent to the central component
+#### Data Model Components
+- **Biobank entities**: Organizational information about biobanks
+- **Collection entities**: Details about sample collections and datasets
+- **Service entities**: Structured descriptions of available services
+- Standardized metadata following MIABIS Core 3.0
+- Integration with ontologies (OBIB, NCIT) for semantic interoperability
 
-#### Central Component
-- Operated and maintained by BBMRI-ERIC CS IT
-- Publicly accessible for queries
-- Requires authentication (BBMRI-ERIC AAI) to view per-biobank results
-- Users accept BBMRI-ERIC Acceptable Use Policy during authentication
+#### Technical Infrastructure
+- Publicly accessible web interface at https://directory.bbmri-eric.eu/
+- EMX (Entity Model Exchange) based data import/export mechanisms
+- Structured metadata schema for searchable, filterable, and comparable information
+- Authentication via BBMRI-ERIC AAI for enhanced features
 
 ### How It Works
 
-1. **Data preparation**: You standardize and export data to your local component in HL7 FHIR format
-2. **Query submission**: Researchers submit queries through the central component
-3. **Query distribution**: Your local component checks for new queries every 5 seconds
-4. **Local processing**: When a relevant query is found, your local component processes it against your FHIR or OMOP database
-5. **Aggregated response**: Your local component sends only aggregated data (e.g., counts, distributions) to the central component
-6. **Request workflow**: Researchers view results and submit access requests via BBMRI-ERIC Negotiator
+1. **Data registration**: National Nodes and biobanks register their information in the Directory
+2. **Metadata standardization**: Information is structured according to MIABIS standards
+3. **Search and discovery**: Researchers search, filter, and compare resources based on standardized parameters
+4. **Service exploration**: Users can explore available services including:
+   - Sample preparation and quality control
+   - Multi-omics analyses (genomics, proteomics, metabolomics)
+   - Bioinformatics and data science services
+   - ELSI support and training
+5. **Access initiation**: Researchers identify suitable resources and initiate contact via the Negotiator
 
-**Example query**: "How many patients whose samples are available for research have been diagnosed with C50.1?"  
-**Example response**: A single count or distribution—no sensitive data transmitted.
+**Example search**: "Find biobanks with breast cancer tissue samples that offer RNA sequencing services"  
+**Example response**: List of matching biobanks with detailed collection and service information
 
-### Optional Directory Updates
+### Integration with BBMRI Tools
 
-If you choose, your local component can update your collection information in the National and BBMRI-ERIC Directory using aggregate descriptors.
+The Directory serves as the gateway to the broader BBMRI-ERIC tool ecosystem:
+
+- **Locator integration**: Links to federated search capabilities for real-time queries
+- **Negotiator integration**: Direct connection to initiate access requests
+- **FAIR principles**: Ensures data is Findable, Accessible, Interoperable, and Reusable
+- **Future interoperability**: Designed for integration with European Health Data Space (EHDS)
 
 ### Your Responsibilities
 
-**Installation & Maintenance**:
-- Your biobank/hospital IT team or National Node installs the local component
-- Installed on a virtual machine or physical server within your infrastructure
-- Secured behind your firewall (only one outbound port required)
-- All costs are covered by your institution
+**Data Management**:
+- National Nodes coordinate biobank data registration and updates
+- Biobanks provide accurate, current information about collections and services
+- Regular updates ensure the Directory reflects available resources
+- Compliance with MIABIS metadata standards
 
-**Security**: One-way connection ensures queries are pulled from the central component; no inbound connections to your network required.
+**Quality Assurance**: Maintaining data quality through standardized service descriptions, accreditation status documentation, and adherence to quality standards (ISO 20387, ISBER guidelines).

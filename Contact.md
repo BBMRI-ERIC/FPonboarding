@@ -10,10 +10,10 @@ Use this email as your first point of contact for all questions and requests. A 
 
 ### What BBMRI-ERIC Provides
 
-BBMRI-ERIC IT team supports your integration with:
+**[BBMRI-ERIC](https://www.bbmri-eric.eu/)** IT team supports your integration with:
 - Authentication and Authorization Infrastructure (AAI)
 - Federated Platform integration
-- Connection to the BBMRI-ERIC IT ecosystem
+- Connection to the **[BBMRI-ERIC](https://www.bbmri-eric.eu/)** IT ecosystem
 
 ### Costs
 
