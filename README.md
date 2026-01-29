@@ -1,4 +1,4 @@
-> [!IMPORTANT]
+> [!NOTE]
 > https://bbmri-eric.github.io/FPonboarding/
 
 # Documentation
