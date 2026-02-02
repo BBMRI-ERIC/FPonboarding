@@ -19,6 +19,9 @@ hero:
     - theme: alt
       text: Locator
       link: /Locator
+    - theme: alt
+      text: Provenance
+      link: /Provenance
 
 features:
   - title: Get started

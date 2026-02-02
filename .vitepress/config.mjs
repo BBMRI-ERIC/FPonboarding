@@ -18,7 +18,8 @@ export default defineConfig({
         items: [
           { text: 'Directory', link: '/Directory' },
           { text: 'Negotiator', link: '/Negotiator' },
-          { text: 'Locator', link: '/Locator'}
+          { text: 'Locator', link: '/Locator' },
+          { text: 'Provenance', link: '/Provenance' }
         ]
       }
     ],
