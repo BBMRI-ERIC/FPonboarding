@@ -1,4 +1,4 @@
-# New Biobank Onboarding Guide
+# Biobank Onboarding Guide
 ## BBMRI-ERIC Directory
 
 **Version 1.0 | December 2024**
@@ -9,13 +9,9 @@
 
 The BBMRI-ERIC Directory is Europe's catalogue of biobanks and sample collections. Being listed makes your biobank discoverable to researchers across Europe and facilitates collaborations.
 
-**Time to complete onboarding:** 2-4 weeks  
-**Complexity:** Medium (no programming required)  
-**Cost:** Free
-
 ---
 
-## Step 1: Prepare Your Information (Week 1)
+## Step 1: Prepare Your Information
 
 Before you start, gather the following information:
 
@@ -52,7 +48,7 @@ For each collection you want to list:
 
 ---
 
-## Step 2: Request Access (Week 1-2)
+## Step 2: Request Access
 
 ### 2.1 Contact Your National Node
 
@@ -91,7 +87,7 @@ Once your National Node approves, you need login access:
 1. Go to [https://directory.bbmri-eric.eu](https://directory.bbmri-eric.eu)
 2. Click **"Sign in"** in the top right
 
-![Login Screen](/login-screen.png)
+![Login Screen](public/login-screen.png)
 
 3. Choose your login method:
    - **Institutional login** - if your institution is listed
@@ -137,7 +133,7 @@ Where:
 
 ---
 
-## Step 4: Enter Your Data (Week 2-3)
+## Step 4: Enter Your Data
 
 You have two options: **Manual Entry** (easier) or **File Upload** (faster for multiple collections).
 
@@ -324,7 +320,7 @@ The Excel file has multiple sheets:
 
 ---
 
-## Step 5: Verify & Publish (Week 3-4)
+## Step 5: Verify & Publish
 
 ### 5.1 Check Your Staging Area
 
@@ -425,7 +421,7 @@ Right: urn:miriam:icd:C50
 
 - **ICD-10 Disease Codes**: [https://icd.who.int/browse10/2019/en](https://icd.who.int/browse10/2019/en)
 - **Orphanet Rare Diseases**: [https://www.orpha.net](https://www.orpha.net)
-- **Full Technical Manual**: Available in the Directory
+- **Full Technical Manual**: [Available in the Directory](https://directory.bbmri-eric.eu/ERIC/pages/#/Help)
 - **Quality Assessment**: [https://www.bbmri-eric.eu/services/self-assessment-survey/](https://www.bbmri-eric.eu/services/self-assessment-survey/)
 
 ---
@@ -468,80 +464,6 @@ Enhance your entry with:
 - **Services**: Sequencing, data analysis, sample processing
 - **Studies**: Research studies that generated collections
 - **Collection Facts**: Detailed sample aggregates for researchers
-
----
-
-## Quick Reference: Mandatory Fields
-
-### Persons (Contacts)
-- ✅ ID (format: `bbmri-eric:contactID:<CC>_<name>`)
-- ✅ Email
-- ✅ Country
-
-### Biobanks
-- ✅ ID (format: `bbmri-eric:ID:<CC>_<name>`)
-- ✅ Name
-- ✅ Description
-- ✅ Country
-- ✅ Contact (reference to person)
-- ✅ Juridical person
-
-### Collections
-- ✅ ID (format: `<biobank_id>:collection:<name>`)
-- ✅ Name
-- ✅ Description
-- ✅ Country
-- ✅ Contact (reference to person)
-- ✅ Biobank (reference to your biobank)
-- ✅ Type (at least one)
-- ✅ Data categories (at least one)
-- ✅ Order of magnitude (0-8)
-
----
-
-## Timeline Summary
-
-| Week | Activity | Duration |
-|------|----------|----------|
-| **Week 1** | Gather information, contact National Node | 3-5 days |
-| **Week 1-2** | Request and receive access credentials | 3-7 days |
-| **Week 2-3** | Enter biobank and collection data | 2-5 days |
-| **Week 3** | Review staging area, wait for publication | 1-2 days |
-| **Week 4** | Verify production directory, make adjustments | 1-2 days |
-
-**Total Time: 2-4 weeks** (depending on how quickly you gather information)
-
----
-
-## Checklist: Are You Ready?
-
-Before you start:
-- [ ] I have gathered all biobank information
-- [ ] I have collection details ready
-- [ ] I understand the ID format rules
-- [ ] I have contact information prepared
-- [ ] I have contacted my National Node
-- [ ] I have received login credentials
-
-Ready to enter data:
-- [ ] I can log in to the Directory
-- [ ] I can access my staging area
-- [ ] I have created at least one contact person
-- [ ] I have created my biobank entry
-- [ ] I have created at least one collection
-
-Ready to publish:
-- [ ] I have reviewed all data in staging area
-- [ ] All required fields are filled
-- [ ] All IDs follow the correct format
-- [ ] Contact references are correct
-- [ ] I am ready to wait for overnight publication
-
-Published:
-- [ ] My biobank appears in search results
-- [ ] All information is correct in production
-- [ ] I have bookmarked my biobank page
-- [ ] I have noted my IDs for future updates
 
 ---
 
