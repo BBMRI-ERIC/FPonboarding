@@ -145,7 +145,7 @@ You have two options: **Manual Entry** (easier) or **File Upload** (faster for m
 2. Click **"Navigator"** in the top menu
 3. Select your country's staging area (e.g., **BBMRI-AT**, **BBMRI-DE**)
 
-![Navigator Screen](/navigator-screen.png)
+![Navigator Screen](public/navigator-screen.png)
 
 #### 4.2 Enter Contact Person FIRST
 
@@ -163,7 +163,7 @@ You have two options: **Manual Entry** (easier) or **File Upload** (faster for m
    - **Address, City, ZIP**: Optional but recommended
 4. Click **"Save Persons"**
 
-![Contact Form](/contact-form.png)
+![Contact Form](public/contact-form.png)
 
 #### 4.3 Create Your Biobank Entry
 
@@ -190,7 +190,7 @@ You have two options: **Manual Entry** (easier) or **File Upload** (faster for m
 
 4. Click **"Save Biobanks"**
 
-![Biobank Form](/biobank-form.png)
+![Biobank Form](public/biobank-form.png)
 
 #### 4.4 Add Your Collection(s)
 
@@ -263,7 +263,7 @@ You have two options: **Manual Entry** (easier) or **File Upload** (faster for m
 
 4. Click **"Save Collections"**
 
-![Collection Form](/collection-form.png)
+![Collection Form](public/collection-form.png)
 
 #### 4.5 Review Your Data
 
@@ -281,7 +281,7 @@ If you have many collections or existing data in spreadsheets:
 2. Click **"Data Integration"** → **"Upload/Download"**
 3. Click **"excel"** to download template
 
-![Upload Screen](/upload-screen.png)
+![Upload Screen](public/upload-screen.png)
 
 #### 4.2 Fill in the Template
 
@@ -309,7 +309,7 @@ The Excel file has multiple sheets:
    - ⚠️ Yellow = Warning (review but may be OK)
    - ❌ Red = Error (must fix)
 
-![Upload Progress](/upload-progress.png)
+![Upload Progress](public/upload-progress.png)
 
 5. If errors occur:
    - Screenshot the error message
@@ -350,7 +350,7 @@ The next day after your data entry:
 4. Verify all information appears correctly
 5. Check your collections are listed
 
-![Search Results](/search-results.png)
+![Search Results](public/search-results.png)
 
 **If something is wrong:**
 - Go back to your staging area
