@@ -1,5 +1,8 @@
 ## The Directory Platform
 
+> [!NOTE]
+> **This page provides a general overview of the Directory Platform.** If you're a biobank wanting to join the Directory, please see the **[Directory Onboarding Guide](DirectoryOnboarding.md)** for step-by-step instructions on how to register your biobank and collections.
+
 ### What is the Directory?
 
 The Directory is BBMRI-ERIC's online catalog—basically a searchable database where researchers can find biobanks, browse their collections, and see what services they offer. If you're a researcher looking for samples, this is where you start.
@@ -54,6 +57,9 @@ The Directory is the starting point, but it's integrated with the rest of the [B
 
 ### What you need to do
 
+> [!IMPORTANT]
+> **Ready to onboard your biobank?** Follow the complete step-by-step process in the **[Directory Onboarding Guide](DirectoryOnboarding.md)**. The guide covers everything from requesting access to publishing your biobank and collections.
+
 **Provide and maintain your data:**
 Your National Node will help coordinate this, but basically you need to:
 - Register your biobank information in the Directory
@@ -71,3 +77,4 @@ You'll need to describe your collections using [MIABIS Core 3.0](https://github.
 If you have accreditations (like [ISO 20387](https://www.iso.org/standard/67888.html) or follow [ISBER guidelines](https://www.isber.org/page/BPR)), document them. Researchers care about quality standards, and it helps them trust your samples.
 
 The Directory team provides templates and tools to make data entry easier—you're not starting from scratch. Most biobanks use the EMX import functionality to bulk-upload their collection information rather than entering it manually.
+
