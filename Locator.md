@@ -1,5 +1,9 @@
 ## The Locator Platform
 
+> [!NOTE]
+> **This page provides a general overview of the Locator Platform.** If you're a biobank wanting to join the Locator, please see the **[Locator Onboarding Guide](LocatorOnboarding.md)** for step-by-step instructions on how to register your biobank and collections.
+
+
 ### What is the Locator?
 
 The Locator is a federated search engine for biobank samples. Researchers can query multiple biobanks at once to see who has what they're looking for—but here's the key part: **your data never leaves your site**. All the processing happens locally at your biobank, and only aggregate counts get sent back.
