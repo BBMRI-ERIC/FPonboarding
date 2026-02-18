@@ -93,6 +93,9 @@ Once your National Node approves, you need login access:
    - **Institutional login** - if your institution is listed
    - **LifeScience Hostel** - if your institution is not available
 
+![Institutional Login Screen](public/login-screen-inst.png)
+
+
 4. If using LifeScience Hostel:
    - Create a free account
    - Email **support@molgenis.org** with:
