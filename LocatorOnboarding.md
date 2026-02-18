@@ -501,23 +501,6 @@ Congratulations! Your biobank is now part of the BBMRI-ERIC Federated Platform, 
 
 ---
 
-## Locator vs. Finder
-
-BBMRI-ERIC offers two federated search tools:
-
-| Feature | **Locator** | **Finder** |
-|---------|-------------|------------|
-| **Data format** | HL7 FHIR | OMOP CDM |
-| **Local component** | Bridgehead | BC Link |
-| **Focus** | Sample-level data | Clinical data and research datasets |
-| **License** | Open source | Requires license agreement |
-| **Hardware requirements** | 4 vCPU, 8 GB RAM | 8 vCPU, 16 GB RAM |
-| **URL** | [locator.bbmri-eric.eu](https://locator.bbmri-eric.eu/) | [finder.bbmri-eric.eu](https://finder.bbmri-eric.eu/) |
-
-**Recommendation:** Start with the Locator (easier setup), then consider adding Finder for more advanced use cases.
-
----
-
 ## Useful Resources
 
 ### 📚 Documentation
